@@ -6,7 +6,6 @@ import { metrics } from "@/lib/content";
 import SplitText from "@/components/ui/SplitText";
 import MagneticButton from "@/components/ui/MagneticButton";
 import Counter from "@/components/ui/Counter";
-import Gauge from "@/components/ui/Gauge";
 import { Arrow } from "./Navbar";
 
 const GasFlowCanvas = dynamic(() => import("@/components/canvas/GasFlowCanvas"), { ssr: false });
@@ -64,28 +63,6 @@ export default function Hero() {
               </MagneticButton>
             </motion.div>
           </div>
-
-          {/* Live telemetry card */}
-          <motion.aside
-            {...fade(1.2)}
-            className="hidden w-[260px] rounded-2xl border border-line bg-surface/60 p-5 backdrop-blur-md lg:block"
-          >
-            <div className="mb-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
-              <span>Train A · Discharge</span>
-              <span className="text-ok">● Live</span>
-            </div>
-            <Gauge value={0.84} reading="212 bar" label="Stage 3 Pressure" size={220} />
-            <div className="mt-4 grid grid-cols-2 gap-3 border-t border-line pt-4 font-mono text-[11px]">
-              <div>
-                <div className="text-dim">FLOW</div>
-                <div className="text-fg">1.24 MMSCMD</div>
-              </div>
-              <div>
-                <div className="text-dim">HCDP</div>
-                <div className="text-cyan">−4.8 °C</div>
-              </div>
-            </div>
-          </motion.aside>
         </div>
       </div>
 
